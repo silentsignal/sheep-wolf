@@ -1,0 +1,3 @@
+[submodule "longEgg"]
+	path = longEgg
+	url = https://github.com/natmchugh/longEgg.git

@@ -85,11 +85,13 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\sheep\common.h" />
+    <ClInclude Include="..\sheep\crc.h" />
     <ClInclude Include="..\sheep\rc4.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\sheep\crc.cpp" />
     <ClCompile Include="..\sheep\rc4.cpp" />
     <ClCompile Include="shepherd.cpp" />
     <ClCompile Include="stdafx.cpp">

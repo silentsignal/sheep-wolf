@@ -44,6 +44,11 @@ References
 * [How to make two binaries with same MD5](http://natmchugh.blogspot.co.uk/2015/05/how-to-make-two-binaries-with-same-md5.html)
 * [Stop using MD5 now!](#TODO)
 
+Tips and Tricks
+---------------
+
+MD5.php of longEgg uses PHP 5.4 syntax for declaring arrays. If you're using an older version you should replace `[x, y, z]` declarations to `array(x, y, z)`.
+
 TODO
 ----
 

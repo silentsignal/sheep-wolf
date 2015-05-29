@@ -31,7 +31,7 @@ For more information see the [tutorial of Nate McHugh](http://natmchugh.blogspot
 References
 ----------
 
-* [Poisonous MD5 - Wolves Among the Sheep](#TODO)
+* [Poisonous MD5 - Wolves Among the Sheep](http://blog.silentsignal.eu/2015/05/29/poisonous-md5-wolves-among-the-sheep/)
 * [How to make two binaries with same MD5](http://natmchugh.blogspot.co.uk/2015/05/how-to-make-two-binaries-with-same-md5.html)
 * [Stop using MD5 now!](http://jumpespjump.blogspot.hu/2014/03/stop-using-md-5-now.html)
 

@@ -25,8 +25,8 @@ int main(int argc, char* argv[])
 	
 	printf("#define SC {");
 	for (int i=0;i<contents.length();i++){
+		if (i!=0) putchar(',');
 		printf("0x%02x",(unsigned char)((unsigned char)(contents.c_str()[i])^crypted[i]));
-		if (i!=contents.length()-1) printf(","); // This is so ugly...
 	}
 	printf("}\n\n");
 	// Calculating CRC

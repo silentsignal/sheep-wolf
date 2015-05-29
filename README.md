@@ -3,70 +3,37 @@ Wolves Among the Sheep
 
 Poisoning security tools that use obsolate crypto.
 
+Works-on-my-machine version, feedback is welcome!
+
 Dependencies
 ------------
 
 * Visual Studio 2012 to compile the projects (Express will do)
-* PHP (CLI) to run [longEgg](https://github.com/natmchugh/longEgg) (referenced as submodule)
+* PHP (CLI) >=5.4 to run [longEgg](https://github.com/natmchugh/longEgg) (referenced as submodule)
 * [Fastcoll](https://www.win.tue.nl/hashclash/) for collisions
 
 Usage
 -----
 
-Extract `fastcoll` to the `fastcoll` directory.
+Extract `fastcoll` to the `fastcoll` directory. Name the executable fastcoll.exe
+Put php.exe in your PATH.
 
-Use `shepherd.bat` to generate the appropriate header file with the encrypted shellcode:
+Use `shepherd.bat` to generate wolf.exe and sheep.exe:
 
 ```
 > shepherd.bat YOURPASSWORD your_shellcode.raw
 ```
 
-Run `long\_egg.php` in its own directory - this way it will find `sheep.exe` copyed next to it by the batch file (with the name `demo` that is currently hardwired in longEgg).
+After this step you should have your two colliding binaries (`sheep.exe` and `wolf.exe` in the long_egg directory).
 
-Feed the resulting hash to `fastcoll` in the way showed below (don't change CWD, output should be named `a` and `b`).
-This will create two files `a` and `b` that will be consumed by `long\_egg.php` when it's executed again.
-
-```
-X:\path\sheep\> shepherd.bat YOURPASSWORD msgbox.raw
-[... build output ...]
-
-X:\path\sheep\> cd long_egg
-
-X:\path\sheep\long_egg> php long_egg.php
-I want to replace 128 bytes at position 48448 in X:\path\sheep\long_egg\demo
-48448
-Chainring variable up to that point is deadbabedeadbabedeadbabedeadbabe
-Run fastcoll to generate a 2 block collision in MD5
-
-X:\path\sheep\long_egg> ..\fastcoll\fastcoll.exe -i deadbabedeadbabedeadbabedeadbabe -o a b
-MD5 collision generator v1.5
-by Marc Stevens (http://www.win.tue.nl/hashclash/)
-
-Using output filenames: 'a' and 'b'
-Using initial value: deadbabedeadbabedeadbabedeadbabe
-
-Generating first block: ....................
-Generating second block: S10.................
-Running time: 1.337 s
-
-X:\path\sheep\long_egg> php long_egg.php
-I want to replace 128 bytes at position 48448 in X:\path\sheep\long_egg\demo
-48448
-Chainring variable up to that point is deadbabedeadbabedeadbabedeadbabe
-Just output new file /home/b/tools/md5/sheep/long_egg/devil with hash deadbeefdeadbeefdeadbeefdeadbeef
-Just output new file /home/b/tools/md5/sheep/long_egg/angel with hash deadbeefdeadbeefdeadbeefdeadbeef
-```
-
-After this step you should have your two colliding binaries (`angel` and `devil`).
-
-For more information see the [tutorial of Nate McHugh](http://natmchugh.blogspot.co.uk/2015/05/how-to-make-two-binaries-with-same-md5.html):
+For more information see the [tutorial of Nate McHugh](http://natmchugh.blogspot.co.uk/2015/05/how-to-make-two-binaries-with-same-md5.html), older revisions of this document or the source code...
 
 References
 ----------
 
 * [Poisonous MD5 - Wolves Among the Sheep](#TODO)
 * [How to make two binaries with same MD5](http://natmchugh.blogspot.co.uk/2015/05/how-to-make-two-binaries-with-same-md5.html)
-* [Stop using MD5 now!](#TODO)
+* [Stop using MD5 now!](http://jumpespjump.blogspot.hu/2014/03/stop-using-md-5-now.html)
 
 Tips and Tricks
 ---------------

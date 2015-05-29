@@ -44,6 +44,7 @@ TODO
 ----
 
 * Improve longEgg to accept parameters
+* Eliminate PHP 
 
 LICENSE
 -------

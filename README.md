@@ -24,7 +24,7 @@ Use `shepherd.bat` to generate wolf.exe and sheep.exe:
 > shepherd.bat YOURPASSWORD your_shellcode.raw
 ```
 
-After this step you should have your two colliding binaries (`sheep.exe` and `wolf.exe` in the long_egg directory).
+After this step you should have your two colliding binaries (`sheep.exe` and `wolf.exe` in the `long\_egg` directory).
 
 For more information see the [tutorial of Nate McHugh](http://natmchugh.blogspot.co.uk/2015/05/how-to-make-two-binaries-with-same-md5.html), older revisions of this document or the source code...
 
@@ -38,7 +38,7 @@ References
 Tips and Tricks
 ---------------
 
-MD5.php of longEgg uses PHP 5.4 syntax for declaring arrays. If you're using an older version you should replace `[x, y, z]` declarations to `array(x, y, z)`.
+`MD5.php` of longEgg uses PHP 5.4 syntax for declaring arrays. If you're using an older version you should replace `[x, y, z]` declarations to `array(x, y, z)`.
 
 TODO
 ----

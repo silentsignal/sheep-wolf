@@ -1,6 +1,3 @@
-// shepherd.cpp : Defines the entry point for the console application.
-//
-
 #include "stdafx.h"
 #include "rc4.h"
 #include "crc.h"

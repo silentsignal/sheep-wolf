@@ -12,9 +12,6 @@
  "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" \
  "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
 
-int angel();
-int devil();
-
 char *dummya = DUMMY "A";
 char *dummyb = DUMMY "B";
 unsigned char code[]=SC;

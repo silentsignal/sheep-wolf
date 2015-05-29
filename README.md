@@ -15,8 +15,8 @@ Dependencies
 Usage
 -----
 
-Extract `fastcoll` to the `fastcoll` directory. Name the executable fastcoll.exe
-Put php.exe in your PATH.
+Extract Fastcoll to the `fastcoll` directory. Name the executable `fastcoll.exe`
+Put `php.exe` in your PATH.
 
 Use `shepherd.bat` to generate wolf.exe and sheep.exe:
 
@@ -24,7 +24,7 @@ Use `shepherd.bat` to generate wolf.exe and sheep.exe:
 > shepherd.bat YOURPASSWORD your_shellcode.raw
 ```
 
-After this step you should have your two colliding binaries (`sheep.exe` and `wolf.exe` in the `long\_egg` directory).
+After this step you should have your two colliding binaries (`sheep.exe` and `wolf.exe` in the `long_egg` directory).
 
 For more information see the [tutorial of Nate McHugh](http://natmchugh.blogspot.co.uk/2015/05/how-to-make-two-binaries-with-same-md5.html), older revisions of this document or the source code...
 

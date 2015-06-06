@@ -1,0 +1,9 @@
+ChangeLog
+
+v0.2 2011/10/11
+	(2011/10/11) PS1 - fixed compiler over-optimization bug ("no crib
+	found"). Reported by Borja Burgos.
+
+v0.1 2006/02/18
+	Initial public release
+

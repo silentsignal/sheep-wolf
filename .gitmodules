@@ -1,6 +1,0 @@
-[submodule "longEgg"]
-	path = longEgg
-	url = https://github.com/natmchugh/longEgg.git
-[submodule "long_egg"]
-	path = long_egg
-	url = https://github.com/natmchugh/longEgg

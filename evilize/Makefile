@@ -6,27 +6,23 @@ CC=i686-pc-mingw32-gcc
 CFLAGS=-O3 -Wall -DSTDC_HEADERS -g -DMD5COLL_VERSION=\"${MD5COLL_VERSION}\" -DVERSION=\"${VERSION}\"
 
 PACKAGE=evilize
-VERSION=0.2
+VERSION=0.2p
 MD5COLL_VERSION=0.1s
 
 TOOLS=evilize md5coll 
-EXAMPLES=hello-erase hello erase
+
 
 tools: ${TOOLS}
 examples: ${EXAMPLES}
 
 evilize: evilize.o md5.o md5coll_lib.o
 md5coll: md5coll.o md5coll_lib.o
-hello-erase: hello-erase.o goodevil.o
-
-hello erase: evilize hello-erase
-	./evilize hello-erase -g hello -e erase
 
 # ----------------------------------------------------------------------
 # Distribution
 
 DISTFILES=evilize.c md5coll.c md5coll_lib.c md5coll_lib.h crib.h md5.h	\
- md5.c goodevil.c hello-erase.c Makefile COPYING MBSD-LICENSE README ChangeLog AUTHORS
+ md5.c Makefile COPYING MBSD-LICENSE README ChangeLog AUTHORS
 
 dist: ${DISTFILES}
 	rm -rf ${PACKAGE}-${VERSION}
@@ -39,7 +35,7 @@ clean:
 	rm -f *.o
 
 cleanall: clean
-	rm -f ${TOOLS} ${EXAMPLES}
+	rm -f ${TOOLS}
 
 #----------------------------------------------------------------------
 # The following dependencies were generated with
@@ -48,7 +44,6 @@ cleanall: clean
 # DO NOT DELETE
 
 evilize.o: md5.h md5coll_lib.h crib.h
-goodevil.o: crib.h
 md5.o: md5.h
 md5coll.o: md5coll_lib.h
 md5coll_lib.o: md5coll_lib.h

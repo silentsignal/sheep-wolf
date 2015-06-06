@@ -3,7 +3,7 @@ Wolves Among the Sheep
 
 Poisoning security tools that use obsolate crypto.
 
-Works-on-my-machine version, feedback is welcome!
+Works-on-a-different-machine-than-mine version, feedback is welcome!
 
 Dependencies
 ------------

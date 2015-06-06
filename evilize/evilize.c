@@ -32,8 +32,29 @@ static char *crib = CRIB;
 #define LBUFSIZE 1024
 #define FASTCOLL_CMD "..\\\\fastcoll\\\\fastcoll.exe -i %08x%08x%08x%08x -o a b"
 
+int find_crib(FILE *fin){
+  char buf[64];
+  char last_buf[64];
+  int r;
+  int i;
+  
+  while (1) {
+    r = fread(buf, 1, 64, fin);
+    if (r < 64) {
+      return 1;
+    }
+    for (i=0; i<64; i+=8) {
+      if (memcmp(buf+i, crib, 64-i) == 0) {
+		return ftell(fin)-64+i;
+      }
+    }
+	memcpy(last_buf,buf,64);
+  }
+	  
+}
+
 /* find the initial vector required to evilize FILE, return it in
-   IV. Returns 0 on success, 1 if crib was not found. */
+   IV. Returns 1 if crib was not found. */
 static int find_iv(FILE *fin, unsigned int IV[4]) {
   struct md5_ctx ctx;
   char buf[64];
@@ -49,7 +70,7 @@ static int find_iv(FILE *fin, unsigned int IV[4]) {
     }
     for (i=0; i<64; i++) {
       if (memcmp(buf, crib+i, 64) == 0) {
-	goto crib_found;
+		goto crib_found;
       }
     }
     md5_process_block(buf, 64, &ctx);
@@ -61,6 +82,7 @@ static int find_iv(FILE *fin, unsigned int IV[4]) {
   IV[1] = ctx.B;
   IV[2] = ctx.C;
   IV[3] = ctx.D;
+  
   return ftell(fin);
 }
 
@@ -140,6 +162,7 @@ int main(int ac, char *av[]) {
   FILE *fsheep;
   FILE *fwolf;
   int pos;
+  int off;
   int i=0;
   unsigned char a[128];
   unsigned char b[128];
@@ -188,14 +211,18 @@ int main(int ac, char *av[]) {
   }
     
   r = find_iv(fin, IV);
+  rewind(fin);
+  pos=find_crib(fin);
+  off=r-pos-64;
+  printf("CRIB START: %d\n",pos);
+  
   fclose(fin);
 	
-  if (r == 1) {
+  if (pos == -1 || r == 1) {
     fprintf(stderr, "%s: %s: no crib found.\n", NAME, infile);
     exit(1);
   }
-  pos=r-strlen(CRIB);
-  printf("Pos: %d\n",pos);
+  
   fprintf(stdout, "%08x%08x%08x%08x\n", swap_uint32(IV[0]), swap_uint32(IV[1]), swap_uint32(IV[2]), swap_uint32(IV[3]));
   cmd=(char*)malloc(strlen(FASTCOLL_CMD)+16+1);
   sprintf(cmd,FASTCOLL_CMD,swap_uint32(IV[0]), swap_uint32(IV[1]), swap_uint32(IV[2]), swap_uint32(IV[3]));
@@ -212,21 +239,24 @@ int main(int ac, char *av[]) {
   fin = fopen(infile, "rb");
   fsheep = fopen("sheep.exe","wb"); 
   fwolf = fopen("wolf.exe","wb");
+  printf("Copybuf start: %d end: %d \n",pos-16,pos+176);
   while(!feof(fin)){
 	ch=fgetc(fin);
-		
-	if (ftell(fin)>pos && ftell(fin)<=pos+128){
-		ch_sheep=a[ftell(fin)-pos-1];
-		ch_wolf=b[ftell(fin)-pos-1];
+	//printf("Difference start: %d end: %d \n",pos+16,pos+128+16);
+	if (ftell(fin)>pos+off && ftell(fin)<=pos+128+off){
+		ch_sheep=a[ftell(fin)-(pos+off)-1];
+		ch_wolf=b[ftell(fin)-(pos+off)-1];
 	}
 	else{
 		ch_wolf=ch;
 		ch_sheep=ch;
 	}
-	if (ftell(fin)>pos-16 && ftell(fin)<=pos+176){
+	
+	if (ftell(fin)>pos && ftell(fin)<=pos+192){
 		copybuf[i++]=ch_wolf;
 	}
-	if (ftell(fin)>pos+176 && ch>0 && i>0){
+	//printf("Copybuf start: %d end: %d \n",pos+200,pos+200+192);
+	if (ftell(fin)>pos+200 && i>0){
 		ch_wolf=copybuf[192-i];
 		ch_sheep=copybuf[192-i];
 		i--;

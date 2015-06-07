@@ -1,5 +1,8 @@
 ChangeLog
 
+v0.2p 2015/06/06
+    (2015/06/06) VPB1 - Stripped down version to demonstate MD5 Poisoning
+
 v0.2 2011/10/11
 	(2011/10/11) PS1 - fixed compiler over-optimization bug ("no crib
 	found"). Reported by Borja Burgos.

@@ -39,7 +39,7 @@ How does it work?
     * `sheep.exe` is built with `sc.h`included by Visual Studio
 * `shepherd.bat` executes `evilize.exe`
     * `evilize.exe` calculates a special IV for the chunk of `sheep.exe` right before the block where the collision will happen
-    * `evilize.exe` executes `fastcoll.exe`
+    * `evilize.exe` executes `fastcoll.exe` with the IV as a parameter
          * `fastcoll.exe` generates two 128 byte colliding blocks: `a` and `b`
     * `evilize.exe` replaces the original string buffers of `sheep.exe` so that they contain combinations `a` and `b`
     * The resulting files (`evilize/wolf.exe` and `evilize/sheep.exe` ) have the same MD5 hashes but behave differently. The real code to be executed only appears in the memory of `evilize/wolf.exe`.

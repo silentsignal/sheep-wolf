@@ -34,15 +34,15 @@ How does it work?
 -----------------
 
 * `shepherd.bat` executes `shepherd.exe` with the user supplied command line arguments
-  * `shepher.exe` generates a header file (`sc.h`) that contains the encrypted shellcode, the password and the CRC of the plain shellcode
+    * `shepher.exe` generates a header file (`sc.h`) that contains the encrypted shellcode, the password and the CRC of the plain shellcode
 * `shepherd.bat` executes the build process of `sheep.exe`
-  * `sheep.exe` is built with `sc.h`included by Visual Studio
+    * `sheep.exe` is built with `sc.h`included by Visual Studio
 * `shepherd.bat` executes `evilize.exe`
-  * `evilize.exe` calculates a special IV for the chunk of `sheep.exe` right before the block where the collision will happen
-  * `evilize.exe` executes `fastcoll.exe`
-     * `fastcoll.exe` generates two 128 byte colliding blocks: `a` and `b`
-  * `evilize.exe` replaces the original string buffers of `sheep.exe` so that they contain combinations `a` and `b`
-  * The resulting files (`evilize/wolf.exe` and `evilize/sheep.exe` ) have the same MD5 hashes but behave differently. The real code to be executed only appears in the memory of `evilize/wolf.exe`.
+    * `evilize.exe` calculates a special IV for the chunk of `sheep.exe` right before the block where the collision will happen
+    * `evilize.exe` executes `fastcoll.exe`
+         * `fastcoll.exe` generates two 128 byte colliding blocks: `a` and `b`
+    * `evilize.exe` replaces the original string buffers of `sheep.exe` so that they contain combinations `a` and `b`
+    * The resulting files (`evilize/wolf.exe` and `evilize/sheep.exe` ) have the same MD5 hashes but behave differently. The real code to be executed only appears in the memory of `evilize/wolf.exe`.
 
 
 References

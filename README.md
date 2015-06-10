@@ -20,7 +20,7 @@ Usage
 
 Extract Fastcoll to the `fastcoll` directory. Name the executable `fastcoll.exe`
 
-Use `shepherd.bat` to generate `wolf.exe` and `sheep.exe`:
+Use `shepherd.bat` to generate `wolf.exe` and `sheep.exe` (in the VS Development Command Prompt):
 
 ```
 > shepherd.bat YOURPASSWORD your_shellcode.raw
@@ -43,7 +43,6 @@ How does it work?
          * `fastcoll.exe` generates two 128 byte colliding blocks: `a` and `b`
     * `evilize.exe` replaces the original string buffers of `sheep.exe` so that they contain combinations `a` and `b`
     * The resulting files (`evilize/wolf.exe` and `evilize/sheep.exe` ) have the same MD5 hashes but behave differently. The real code to be executed only appears in the memory of `evilize/wolf.exe`.
-
 
 References
 ----------

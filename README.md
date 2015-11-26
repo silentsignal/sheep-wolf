@@ -10,7 +10,7 @@ Works-on-a-different-machine-than-mine version, feedback is welcome!
 Dependencies
 ------------
 
-* 32-bit Windows (virtual) machine (64-bit will probably break stuff - not tested)
+* 32-bit Windows (virtual) machine (64-bit breaks stuff)
 * Visual Studio 2012 to compile the projects (Express will do)
 * [Fastcoll](https://www.win.tue.nl/hashclash/) for collisions
 * Optional: Cygwin+MinGW to compile Evilize

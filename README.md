@@ -44,6 +44,20 @@ How does it work?
     * `evilize.exe` replaces the original string buffers of `sheep.exe` so that they contain combinations `a` and `b`
     * The resulting files (`evilize/wolf.exe` and `evilize/sheep.exe` ) have the same MD5 hashes but behave differently. The real code to be executed only appears in the memory of `evilize/wolf.exe`.
 
+Testing Methodology
+-------------------
+
+To test the security products in your reach you should generate two pairs of samples (SHEEP1-WOLF1 and SHEEP2-WOLF2), preferably with the same payload. Since samples (or their fingerprints) are usually uploaded to central repositories (or "the cloud") precompiled samples are not included to avoid conflicts between independent testers.
+
+After the samples are ready follow the methodology shown on the diagram below:
+
+![Testing Methodology](testing_methodology.svg "Testing Methodology")
+
+(*) If the product is not able to detect the first malicious sample, there are more serious problems to worry about than crypto-fu. In fact, the simple cryptography included in the provided boilerplate code poses as a hard challenge for various products... Try to use more obvious samples!
+(**) The product most probably uses some trivial method to detect the boilerplate insted of the actual payload. You can try to introduce simple changes to the code like removing debug strings. 
+
+Please don't forget to share your positive results by issuing a pull request to the [RESULTS.md](https://github.com/silentsignal/sheep-wolf/blob/master/results/RESULTS.md) file!
+
 References
 ----------
 

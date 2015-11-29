@@ -1,9 +1,7 @@
 Wolves Among the Sheep
 ======================
 
-Poisoning security tools that use obsolate crypto.
-
-Please use this code to test if the security products in your reach use MD5 internally to fingerprint binaries and share your results by issuing a pull request updating the contents of `results/`!
+Some security tools still stick to MD5 when identifying malware samples years after practical collisions were shown against the algorithm. This can be [exploited](http://blog.silentsignal.eu/2015/06/10/poisonous-md5-wolves-among-the-sheep/) by first showing these tools a harmless sample (Sheep) and then a malicious one (Wolf) that have the same MD5 hash. Please use this code to test if the security products in your reach use MD5 internally to fingerprint binaries and share your results by issuing a pull request updating the contents of `results/`!
 
 Works-on-a-different-machine-than-mine version, feedback is welcome!
 

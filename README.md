@@ -53,8 +53,8 @@ After the samples are ready follow the methodology shown on the diagram below:
 
 ![Testing Methodology](testing_methodology.png "Testing Methodology")
 
-(*) If the product is not able to detect the first malicious sample, there are more serious problems to worry about than crypto-fu. In fact, the simple cryptography included in the provided boilerplate code poses as a hard challenge for various products... Try to use more obvious samples!
-(**) The product most probably uses some trivial method to detect the boilerplate insted of the actual payload. You can try to introduce simple changes to the code like removing debug strings. 
+(\*) If the product is not able to detect the first malicious sample, there are more serious problems to worry about than crypto-fu. In fact, the simple cryptography included in the provided boilerplate code poses as a hard challenge for various products... Try to use more obvious samples!
+(\*\*) The product most probably uses some trivial method to detect the boilerplate insted of the actual payload. You can try to introduce simple changes to the code like removing debug strings. 
 
 Please don't forget to share your positive results by issuing a pull request to the [RESULTS.md](https://github.com/silentsignal/sheep-wolf/blob/master/results/RESULTS.md) file!
 

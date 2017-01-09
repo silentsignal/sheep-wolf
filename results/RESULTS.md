@@ -5,4 +5,6 @@ Wolves Among the Sheep - Results
 * REDACTED (network forensics appliance)
 * REDACTED (next-generation AV)
 * [Panda Adaptive Defense 360](https://vimeo.com/192484882)
+* REDACTED (malware analysis sandbox), vendor notified, vendor acknowledged the issue
+* REDACTED (malware analysis sandbox Virustotal API), vendor notified, bug fixed
 * (...Your contribution here...)

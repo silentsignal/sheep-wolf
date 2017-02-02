@@ -7,4 +7,5 @@ Wolves Among the Sheep - Results
 * [Panda Adaptive Defense 360](https://vimeo.com/192484882)
 * REDACTED (malware analysis sandbox), vendor notified, vendor acknowledged the issue
 * REDACTED (malware analysis sandbox Virustotal API), vendor notified, bug fixed
+* Malware whitelists (and blacklists) of Tenable Nessus [are based on MD5 hashes](http://static.tenable.com/documentation/nessus_6.4_user_guide.pdf)
 * (...Your contribution here...)

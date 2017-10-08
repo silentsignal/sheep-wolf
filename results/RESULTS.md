@@ -8,5 +8,5 @@ Wolves Among the Sheep - Results
 * REDACTED (malware analysis sandbox), vendor notified, vendor acknowledged the issue
 * REDACTED (malware analysis sandbox Virustotal API), vendor notified, bug fixed
 * Malware whitelists (and blacklists) of Tenable Nessus [are based on MD5 hashes](http://static.tenable.com/documentation/nessus_6.4_user_guide.pdf)
-* [ClamAV](http://seclists.org/oss-sec/2017/q4/19)
+* [ClamAV](http://seclists.org/oss-sec/2017/q4/19) ([Bornhack lightning talk slides](http://klondike.es/charlas/whitelist/whitelist.odp))
 * (...Your contribution here...)
